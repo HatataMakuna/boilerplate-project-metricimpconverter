@@ -12,7 +12,8 @@ module.exports = function (app) {
       let input = req.query.input;
       let initNum = convertHandler.getNum(input);
       let initUnit = convertHandler.getUnit(input);
-      let returnNum = convertHandler.convert(initNum, initUnit);
+      // Math.round(result * 100000) / 100000
+      let returnNum = Math.round(convertHandler.convert(initNum, initUnit) * 100000) / 100000;
       let returnUnit = convertHandler.getReturnUnit(initUnit);
       let toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       let responseObject = {

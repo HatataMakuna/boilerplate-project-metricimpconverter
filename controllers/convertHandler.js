@@ -1,5 +1,8 @@
 function ConvertHandler() {
-  
+  /**
+  You can convert 'gal' to 'L' and vice versa. (1 gal to 3.78541 L)
+  All incoming units should be accepted in both upper and lower case, but should be returned in both the initUnit and returnUnit in lower case, except for liter, which should be represented as an uppercase 'L'.
+   */
   this.getNum = function(input) {
     let result;
     // Fraction regex to match numbers and fractions, e.g.: 1/2, 3/4, 5.5/2, 3/5
@@ -33,8 +36,8 @@ function ConvertHandler() {
       case 'gal':
         result = 'gal';
         break;
-      case 'l':
-        result = 'l';
+      case 'L': case 'l':
+        result = 'L';
         break;
       case 'lbs':
         result = 'lbs';
@@ -58,9 +61,9 @@ function ConvertHandler() {
     let result;
     switch (initUnit) {
       case 'gal':
-        result = 'l';
+        result = 'L';
         break;
-      case 'l':
+      case 'L': case 'l':
         result = 'gal';
         break;
       case 'lbs':
@@ -87,7 +90,7 @@ function ConvertHandler() {
       case 'gal':
         result = 'gallons';
         break;
-      case 'l':
+      case 'L': case 'l':
         result = 'liters';
         break;
       case 'lbs':
@@ -114,7 +117,7 @@ function ConvertHandler() {
       case 'gal':
         result = 'gallons';
         break;
-      case 'l':
+      case 'L': case 'l':
         result = 'liters';
         break;
       case 'lbs':
@@ -144,7 +147,7 @@ function ConvertHandler() {
       case 'gal':
         result = initNum * galToL;
         break;
-      case 'l':
+      case 'L': case 'l':
         result = initNum / galToL;
         break;
       case 'lbs':
@@ -163,7 +166,8 @@ function ConvertHandler() {
         result = undefined;
     }
     // Round the result to 5 decimal places
-    return Math.round(result * 100000) / 100000;
+    // Math.round(result * 100000) / 100000
+    return result;
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {

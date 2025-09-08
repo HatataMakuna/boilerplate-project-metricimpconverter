@@ -44,7 +44,7 @@ suite('Unit Tests', function(){
     // #7
     test('convertHandler should correctly read each valid input unit.', function(done) {
       let input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
-      let expect = ['gal','l','mi','km','lbs','kg','gal','l','mi','km','lbs','kg'];
+      let expect = ['gal','L','mi','km','lbs','kg','gal','L','mi','km','lbs','kg'];
       input.forEach(function(ele, i) {
         assert.equal(convertHandler.getUnit(ele), expect[i]);
       });
@@ -58,8 +58,8 @@ suite('Unit Tests', function(){
     });
     // #9
     test('convertHandler should return the correct return unit for each valid input unit.', function(done) {
-      let input = ['gal','l','mi','km','lbs','kg'];
-      let expect = ['l','gal','km','mi','kg','lbs'];
+      let input = ['gal','L','mi','km','lbs','kg'];
+      let expect = ['L','gal','km','mi','kg','lbs'];
       input.forEach(function(ele, i) {
         assert.equal(convertHandler.getReturnUnit(ele), expect[i]);
       });
@@ -88,7 +88,7 @@ suite('Unit Tests', function(){
       let input = [5, 0, 2.5, 10.1, 4.4];
       let expect = [1.32086, 0, 0.66043, 2.66743, 1.16211];
       input.forEach(function(ele, i) {
-        assert.approximately(convertHandler.convert(ele, 'l'), expect[i], 0.1);
+        assert.approximately(convertHandler.convert(ele, 'L'), expect[i], 0.1);
       });
       done();
     });
