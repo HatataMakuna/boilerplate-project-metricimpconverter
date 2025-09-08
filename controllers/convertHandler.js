@@ -1,8 +1,5 @@
 function ConvertHandler() {
-  /**
-  You can convert 'gal' to 'L' and vice versa. (1 gal to 3.78541 L)
-  All incoming units should be accepted in both upper and lower case, but should be returned in both the initUnit and returnUnit in lower case, except for liter, which should be represented as an uppercase 'L'.
-   */
+
   this.getNum = function(input) {
     let result;
     // Fraction regex to match numbers and fractions, e.g.: 1/2, 3/4, 5.5/2, 3/5
